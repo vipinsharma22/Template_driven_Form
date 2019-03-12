@@ -1,0 +1,49 @@
+<form (ngSubmit)="onSubmit(main.value)" #main=ngForm>
+  <div class="form-group">
+    <label for="firstName"> FirstName :</label><br>
+    <input required ngModel name="firstName" #firstName="ngModel" id="firstName" type="text"><br>
+    <span class="alert" *ngIf="firstName.touched &&!firstName.valid">firstname is required.</span>
+  </div>
+  <div class="form-group">
+    <label for="lastName"> LastName :</label><br>
+    <input required ngModel name="lastName" #lastName="ngModel" id="lastName" type="text"><br>
+    <span class="alert" *ngIf="lastName.touched &&!lastName.valid">lastname is required.</span>
+  </div>
+
+  <div class="form-group">
+    <label for="EmployeeId"> EmployeeId :</label><br>
+    <input required maxlength="4" minlength="4" ngModel name="EmployeeId" #EmployeeId="ngModel" id="EmployeeId" type="text"><br>
+    <span class="alert" *ngIf="EmployeeId.touched &&!EmployeeId.valid">EmployeeId is Required</span>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email :</label><br>
+    <input required email ngModel name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+      id="email" type="email"><br>
+    <span class="alert" *ngIf="email.touched &&!email.valid">Enter correct email address</span>
+  </div>
+  <div class="form-group">
+    <label for="phoneNumber">Phone Number :</label><br>
+    <input required ngModel name="phoneNumber" #phoneNumber="ngModel" pattern="^[6-9]\d{9}$" id="phoneNumber"
+      type="tel"><br>
+    <span class="alert" *ngIf="phoneNumber.touched &&!phoneNumber.valid">Enter correct Phone Number</span>
+  </div>
+  <div class="form-group">
+    <label for="Address">Address :</label><br>
+    <textarea required rows="5" cols="17" required ngModel name="Address" #Address="ngModel" id="Address"
+      type="text"></textarea><br>
+    <span class="alert" *ngIf="Address.touched &&!Address.valid">Address is required. </span>
+  </div>
+  <div class="form-group">
+    <label for="City"> City :</label><br>
+    <input required ngModel name="City" #City="ngModel" id="City" type="text"><br>
+    <span class="alert" *ngIf="City.touched &&!City.valid">City is Required</span>
+  </div>
+  <div class="form-group">
+    <label for="PinCode"> PinCode :</label><br>
+    <input required maxlength="6" minlength="6" ngModel name="PinCode" #PinCode="ngModel" id="PinCode" type="text"><br>
+    <span class="alert" *ngIf="PinCode.touched &&!PinCode.valid">PinCode is Required</span>
+  </div>
+
+  <button class="form-group" type="submit" [disabled]="!main.valid">Submit</button>
+</form>
